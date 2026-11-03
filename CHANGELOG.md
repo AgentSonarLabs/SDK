@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.0
+
+### Major Changes
+
+- Remove deprecated endpoint configuration compatibility and use the product environment contract.
+
 ## 0.2.0
 
 ### Minor Changes
