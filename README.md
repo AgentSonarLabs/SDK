@@ -2,10 +2,6 @@
 
 TypeScript instrumentation helpers for exporting AI agent traces and structured logs over OTLP/HTTP.
 
-## Status
-
-Active development. Public exports and supported behavior are defined by the package source; the workspace-level [`specs/`](../specs/) describes the intended contract.
-
 ## Install
 
 ```sh
@@ -28,7 +24,7 @@ try {
 }
 ```
 
-Verify exports against the installed version before relying on APIs during this pre-release phase.
+`configure` accepts an explicit OTLP/HTTP base endpoint and optional authorization headers and service identity. Without an explicit endpoint, the SDK checks `AGENT_OBSERVABILITY_ENDPOINT`, the legacy `BLAZO_ENDPOINT`, then `OTEL_EXPORTER_OTLP_ENDPOINT`, and defaults to `http://127.0.0.1:4318`. `observe` creates an agent span, `span` creates a tool/model/session span, and `log` emits a structured log inside the active trace context. Callback errors are recorded on the span and rethrown unchanged.
 
 ## Development
 

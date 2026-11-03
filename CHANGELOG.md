@@ -10,4 +10,6 @@ All notable changes are documented here.
 
 ## Unreleased
 
-- Initial implementation is in progress.
+## 0.1.0
+
+- Added the initial TypeScript package contract, endpoint utilities, and repository quality workflows.

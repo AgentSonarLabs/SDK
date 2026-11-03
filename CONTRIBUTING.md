@@ -2,7 +2,7 @@
 
 Contributions should be focused, documented, and covered by tests when behavior changes.
 
-1. Check the functional spec and existing issues.
+1. Review the repository README, public API docs, and existing issues.
 2. Keep changes within this repository; backend, dashboard, SDK, and CLI are separate repositories.
 3. Add or update tests and release notes/changesets for user-visible behavior.
 4. Run the checks in this repository README.
