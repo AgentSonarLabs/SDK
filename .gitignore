@@ -1,8 +1,25 @@
-/node_modules/
-/dist/
-/coverage/
-/.env
-/.env.*
-!/.env.example
-npm-debug.log*
+# Dependencies/build
+node_modules/
+dist/
+.next/
+out/
+coverage/
+*.tsbuildinfo
 
+# Local settings and telemetry data
+.env
+.env.*
+!.env.example
+*.db
+*.db-shm
+*.db-wal
+.data/
+data/
+.blazo/
+
+# Editors and OS
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo

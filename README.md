@@ -1,19 +1,44 @@
-# AI Agent Observability SDK
+# Agent Observability TypeScript SDK
 
-Standalone TypeScript SDK repository for instrumenting AI agent applications and exporting telemetry to the self-hosted backend.
+TypeScript instrumentation helpers for exporting AI agent traces and structured logs over OTLP/HTTP.
 
 ## Status
 
-This package scaffold establishes the publishing and source layout. Instrumentation functions such as `observe()`, `span()`, and `log()` will be implemented against the OTLP contract in the workspace-level `specs/` documents. They are not exported yet.
+Active development. Public exports and supported behavior are defined by the package source; the workspace-level [`specs/`](../specs/) describes the intended contract.
 
-## Source layout
+## Install
 
-- `src/domain`: telemetry vocabulary and product-independent SDK types.
-- `src/application`: public SDK options and future instrumentation use cases.
-- `src/infrastructure/otlp`: OTLP endpoint, attribute keys, and exporter integration.
-- `src/shared`: internal helpers shared across SDK modules.
-- `src/index.ts`: public package boundary; infrastructure helpers stay private.
+```sh
+npm install agent-observability-sdk
+```
 
-Dependency direction points inward: application code may use domain types and define ports; infrastructure implements those ports. Domain and application code must not depend on infrastructure. The current agent attribute prefix is provisional and is not re-exported from the package root.
+## Usage
 
-The npm package name is a working name and can be changed before the first public release.
+```ts
+import { configure, observe, span, log, shutdown } from "agent-observability-sdk";
+
+configure({ endpoint: "http://127.0.0.1:4318", identity: { name: "support-agent" } });
+try {
+  await observe("support-agent", async () => span("lookup-customer", async () => {
+    log("info", "Looking up customer", { customerId: "customer-123" });
+    return "done";
+  }, { type: "tool" }));
+} finally {
+  await shutdown();
+}
+```
+
+Verify exports against the installed version before relying on APIs during this pre-release phase.
+
+## Development
+
+```sh
+npm install
+npm run format:check
+npm run lint
+npm run typecheck
+npm test
+npm run build
+```
+
+Use Changesets for user-visible package changes. See [CHANGELOG.md](CHANGELOG.md), [SECURITY.md](SECURITY.md), and [CONTRIBUTING.md](CONTRIBUTING.md). License: [MIT](LICENSE).
