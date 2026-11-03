@@ -1,4 +1,4 @@
-import type { TelemetryOptions } from "../types/config.js";
+import type { TelemetryOptions } from "../../application/telemetry-options.js";
 
 export const DEFAULT_OTLP_ENDPOINT = "http://127.0.0.1:4318";
 
@@ -25,4 +25,3 @@ export function resolveOtlpEndpoint(
 
   return url.toString().replace(/\/+$/, "");
 }
-

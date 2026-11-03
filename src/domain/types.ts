@@ -1,4 +1,4 @@
-import type { LOG_LEVELS, SPAN_TYPES } from "../constants/telemetry.js";
+import type { LOG_LEVELS, SPAN_TYPES } from "./telemetry.js";
 
 export type AgentSpanType = (typeof SPAN_TYPES)[number];
 export type AgentLogLevel = (typeof LOG_LEVELS)[number];
@@ -11,4 +11,3 @@ export interface AgentIdentity {
   version?: string;
   environment?: string;
 }
-

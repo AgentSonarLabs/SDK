@@ -1,4 +1,4 @@
-import type { AgentIdentity } from "./telemetry.js";
+import type { AgentIdentity } from "../domain/types.js";
 
 export interface TelemetryOptions {
   /** Base URL for the backend's OTLP/HTTP receiver. */
@@ -8,4 +8,3 @@ export interface TelemetryOptions {
   /** Optional service and agent resource information. */
   identity?: AgentIdentity;
 }
-

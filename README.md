@@ -8,11 +8,12 @@ This package scaffold establishes the publishing and source layout. Instrumentat
 
 ## Source layout
 
-- `src/config`: endpoint and SDK configuration resolution.
-- `src/constants`: telemetry names and attributes.
-- `src/types`: public telemetry and configuration types.
-- `src/utils`: reusable normalization helpers.
-- `src/internal`: implementation details that are not part of the public API.
+- `src/domain`: telemetry vocabulary and product-independent SDK types.
+- `src/application`: public SDK options and future instrumentation use cases.
+- `src/infrastructure/otlp`: OTLP endpoint and exporter integration.
+- `src/shared`: internal helpers shared across SDK modules.
+- `src/index.ts`: public package boundary; infrastructure helpers stay private.
+
+Dependency direction points inward: infrastructure may implement application needs and use domain types; domain must not depend on infrastructure. The current agent attribute prefix is provisional and is not re-exported from the package root.
 
 The npm package name is a working name and can be changed before the first public release.
-
