@@ -14,6 +14,6 @@ This package scaffold establishes the publishing and source layout. Instrumentat
 - `src/shared`: internal helpers shared across SDK modules.
 - `src/index.ts`: public package boundary; infrastructure helpers stay private.
 
-Dependency direction points inward: infrastructure may implement application needs and use domain types; domain must not depend on infrastructure. The current agent attribute prefix is provisional and is not re-exported from the package root.
+Dependency direction points inward: application code may use domain types and define ports; infrastructure implements those ports. Domain and application code must not depend on infrastructure. The current agent attribute prefix is provisional and is not re-exported from the package root.
 
 The npm package name is a working name and can be changed before the first public release.
