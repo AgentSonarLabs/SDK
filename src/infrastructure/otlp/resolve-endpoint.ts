@@ -9,7 +9,6 @@ export function resolveOtlpEndpoint(
   const candidate =
     options.endpoint?.trim() ||
     environment.AGENT_OBSERVABILITY_ENDPOINT?.trim() ||
-    environment.BLAZO_ENDPOINT?.trim() ||
     environment.OTEL_EXPORTER_OTLP_ENDPOINT?.trim() ||
     DEFAULT_OTLP_ENDPOINT;
 
