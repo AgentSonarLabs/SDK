@@ -10,7 +10,7 @@ This package scaffold establishes the publishing and source layout. Instrumentat
 
 - `src/domain`: telemetry vocabulary and product-independent SDK types.
 - `src/application`: public SDK options and future instrumentation use cases.
-- `src/infrastructure/otlp`: OTLP endpoint and exporter integration.
+- `src/infrastructure/otlp`: OTLP endpoint, attribute keys, and exporter integration.
 - `src/shared`: internal helpers shared across SDK modules.
 - `src/index.ts`: public package boundary; infrastructure helpers stay private.
 
