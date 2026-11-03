@@ -1,13 +1,15 @@
 {
   "name": "agent-observability-sdk",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "TypeScript SDK for AI agent observability.",
   "license": "MIT",
   "type": "module",
   "engines": {
     "node": ">=20.9"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
@@ -16,13 +18,30 @@
       "import": "./dist/index.js"
     }
   },
+  "dependencies": {
+    "@opentelemetry/api": "^1.9.1",
+    "@opentelemetry/api-logs": "^0.222.0",
+    "@opentelemetry/exporter-logs-otlp-http": "^0.222.0",
+    "@opentelemetry/exporter-trace-otlp-http": "^0.222.0",
+    "@opentelemetry/resources": "^2.11.0",
+    "@opentelemetry/sdk-logs": "^0.222.0",
+    "@opentelemetry/sdk-node": "^0.222.0",
+    "@opentelemetry/semantic-conventions": "^1.43.0"
+  },
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "typecheck": "tsc -p tsconfig.json --noEmit"
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "npm run build && node --test test/*.test.mjs",
+    "format": "biome format --write .",
+    "format:check": "biome ci .",
+    "lint": "biome lint .",
+    "changeset": "changeset",
+    "version-packages": "changeset version"
   },
   "devDependencies": {
-    "@types/node": "^26.6.3",
-    "typescript": "^5.7.0"
+    "@biomejs/biome": "2.5.0",
+    "@changesets/cli": "^2.31.1",
+    "@types/node": "^26.6.2",
+    "typescript": "^5.9.3"
   }
 }
-

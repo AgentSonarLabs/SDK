@@ -9,4 +9,3 @@ export function normalizeError(value: unknown): Error {
     return new Error(String(value));
   }
 }
-

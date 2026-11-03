@@ -10,4 +10,3 @@ export const STANDARD_TELEMETRY_ATTRIBUTES = {
   serviceName: "service.name",
   genAiTotalTokens: "gen_ai.usage.total_tokens",
 } as const;
-
